@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+	<comment>SQL Queries</comment>
+
+	<entry key="account.create">
+		INSERT
+		INTO account
+		(
+		customerId,accountType,deposit
+		)
+		VALUES
+		(
+		?,?,?
+		)
+	</entry>
+
+	<entry key="account.balance">
+		SELECT balance FROM account WHERE id=?
+	</entry>
+
+	<entry key="customer.retrieve">
+		SELECT id FROM customer WHERE email=?
+	</entry>
+
+	<entry key="customer.create">
+		INSERT
+		INTO customer
+		(
+		firstName,lastName,gender,dob,email,address,city,state,pin,fax,phone
+		)
+		VALUES
+		(
+		?,?,?,?,?,?,?,?,?,?,?
+		)
+	</entry>
+
+	<entry key="account.deposit">
+		UPDATE account SET balance = balance + ? WHERE id = ?
+	</entry>
+
+	<entry key="account.withdraw">
+		UPDATE account SET balance = balance - ? WHERE id = ?
+	</entry>
+
+	<entry key="cashTransaction.create">
+		INSERT INTO cashTransaction
+		(
+		accountNo,amount,type,timestamp,description
+		)
+		VALUES
+		(
+		?,?,?,?,?
+		)
+	</entry>
+
+</properties>
